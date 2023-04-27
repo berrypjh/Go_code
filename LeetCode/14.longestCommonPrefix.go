@@ -2,10 +2,18 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func longestCommonPrefix(strs []string) string {
+	temp := strs[0]
+	for i := 1; i < len(strs); i++ {
+		for !strings.HasPrefix(strs[i], temp) {
+			temp = temp[:len(temp)-1]
+		}
+	}
 
+	return temp
 }
 
 func main() {
